@@ -40,12 +40,12 @@ public class CommandManager {
                 .executor((sender, ctx) -> {
                     User user = ctx.<User>getOne("user").get();
                     int slots = ctx.<Integer>getOne("rows").get();
-                    if (slots < 1 || slots > 6) {
-                        throw new CommandException(Text.of("The size must be higher than 0 and up to 6!"));
+                    if (slots < 1 || slots > 12) {
+                        throw new CommandException(Text.of("The size must be higher than 0 and up to 12!"));
                     }
 
                     int rowLimit = PlayerUtil.getIntOption(sender, "limit.rows");
-                    rowLimit = rowLimit != -1 ? rowLimit : 2;
+                    rowLimit = rowLimit != -1 ? rowLimit : 12;
                     if (slots > rowLimit) {
                         throw new CommandException(Text.of("You can only create a " + rowLimit + " rows backpack!"));
                     }
